@@ -1,0 +1,25 @@
+{
+  "name": "playwright-automation",
+  "version": "1.0.0",
+  "description": "Playwright automation tests with TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --reporter=html",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:ci": "playwright test --reporter=github",
+    "test:ci-local": "cross-env CI=true playwright test --reporter=github",
+    "report": "playwright show-report",
+    "type-check": "tsc --noEmit",
+    "lint": "echo 'No linter configured yet'"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "typescript": "^5.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
