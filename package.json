@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test --reporter=html",
+    "test-vacation": "playwright test tests/find-vacation.spec.ts --reporter=html --project=chromium",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
-    "test:ci": "playwright test --reporter=github --reporter=html",
-    "test:ci-local": "cross-env CI=true playwright test --reporter=github --reporter=html",
+    "test:ci": "playwright test --reporter=github --reporter=html --project=chromium",
+    "test:ci-local": "cross-env CI=true playwright test --reporter=github --reporter=html --project=chromium",
     "report": "playwright show-report",
     "type-check": "tsc --noEmit",
     "lint": "echo 'No linter configured yet'"
