@@ -26,8 +26,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    // headed 
-    headless: process.env.CI ? false : true,
+    // Run headless in CI, headed locally
+    headless: !!process.env.CI,
     
   },
 

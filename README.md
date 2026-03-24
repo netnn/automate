@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Playwright Automation Tests
 
 [![CI](https://github.com/your-username/your-repo-name/actions/workflows/playwright.yml/badge.svg)](https://github.com/your-username/your-repo-name/actions/workflows/playwright.yml)
@@ -80,3 +81,5 @@ test('example test', async ({ page }) => {
   expect(await homePage.expectTitle()).toContain('Playwright');
 });
 ```
+=======
+>>>>>>> b4ccdab (pushed)
