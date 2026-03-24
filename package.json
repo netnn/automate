@@ -4,8 +4,8 @@
   "description": "Playwright automation tests with TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test --reporter=html",
-    "test-vacation": "playwright test tests/find-vacation.spec.ts --reporter=html --project=chromium",
+    "test": "playwright test --project=chromium --reporter=html",
+    "test-vacation": "playwright test tests/find-vacation.spec.ts --project=chromium --reporter=html",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "test:ci": "playwright test --reporter=github --reporter=html --project=chromium",
