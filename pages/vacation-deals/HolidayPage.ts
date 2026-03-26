@@ -10,7 +10,7 @@ export class HolidayPage {
   }
 
   async goto() {
-    await this.page.goto(process.env.FLIGHT_DEALS_URL);
+    await this.page.goto('https://www.holidayfinder.co.il/?#adults=2&babies=0&budget=100,399&children=0&duration=1800&fromwhere=TLV&maxNights=3&minNights=2&nights=2,3&order=-1&rooms=1&sort=best&type=month&weekendsOnly=true&what=83');
   }
 
   async closePopups() {
@@ -22,6 +22,16 @@ export class HolidayPage {
         await el.click();
       }
     }
+  }
+
+  async waitForDeals() {
+    await this.cards.first().waitFor({ state: 'visible', timeout: 10000 });
+  }
+
+  async scrollToDeals()
+  {    await this.page.evaluate(() => {
+      window.scrollBy(0, window.innerHeight);
+    });
   }
 
   async getDeals() {
@@ -42,14 +52,20 @@ export class HolidayPage {
       const priceText = await card.locator('[data-testid="offer-card-price"]').innerText();
       const price = parsePrice(priceText);
 
-      deals.push({
-        destination: { country, city },
-        nights,
-        price,
-        dateText
-      });
+      if (price !== null) {
+        deals.push({
+          destination: { country, city },
+          nights,
+          price,
+          dateText
+        });
+      }
     }
 
     return deals;
+  }
+  async dealsOrderedByPrice() {
+    const deals = await this.getDeals();
+    return deals.sort((a, b) => a.price - b.price);
   }
 }

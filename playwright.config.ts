@@ -30,7 +30,7 @@ export default defineConfig({
     // Run headless in CI, headed locally
     headless: !!process.env.CI ? true : false,
     
-  },
+},
 
   /* Configure projects for major browsers */
   projects: [
