@@ -9,8 +9,8 @@ export class HolidayPage {
     this.cards = page.locator(UserData.cardSelector);
   }
 
-  async goto() {
-    await this.page.goto(UserData.url);
+  async goto(url: string = UserData.url) {
+    await this.page.goto(url);
     console.log(this.page.url());
   }
 
